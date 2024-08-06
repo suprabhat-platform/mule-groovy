@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mule-gitops-deployment
+  namespace: 60486a51-7039-4f45-b1be-a0069c86f864
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mule-gitops
+  template:
+    metadata:
+      labels:
+        app: mule-gitops
+    spec:
+      containers:
+      - name: mule-gitops
+        image: suprabhatcs/mule-gitops:104
+        ports:
+        - containerPort: 8081
